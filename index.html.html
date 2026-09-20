@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QUOPHI WISDOM TECHNOLOGY HUB | Student Registration</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    color:#222;
+
+    /* UNIVERSITY / GRADUATION BACKGROUND */
+    background:
+        linear-gradient(rgba(3,35,65,0.78), rgba(3,35,65,0.78)),
+        url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=2000&q=85");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+
+/* HEADER */
+
+header{
+    background:rgba(3,59,105,0.94);
+    color:white;
+    text-align:center;
+    padding:30px 15px;
+}
+
+.logo{
+    width:85px;
+    height:85px;
+    background:white;
+    color:#0878bd;
+    border-radius:50%;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+    font-weight:bold;
+
+    border:4px solid #bde3ff;
+    box-shadow:0 4px 15px rgba(0,0,0,0.25);
+}
+
+header h1{
+    margin-top:12px;
+    font-size:28px;
+}
+
+header p{
+    margin-top:8px;
+    font-size:15px;
+}
+
+
+/* CONTAINER */
+
+.container{
+    max-width:1000px;
+    margin:35px auto;
+    padding:0 15px;
+}
+
+.form-container{
+    background:rgba(255,255,255,0.97);
+    padding:30px;
+    border-radius:18px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.25);
+}
+
+
+/* TITLE */
+
+.title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.title h2{
+    color:#063b69;
+    margin-bottom:8px;
+}
+
+.title p{
+    color:#666;
+}
+
+
+/* SECTION */
+
+.section{
+    margin-top:28px;
+    padding-top:22px;
+    border-top:1px solid #ddd;
+}
+
+.section h3{
+    color:#0878bd;
+    margin-bottom:18px;
+}
+
+
+/* FORM */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.full{
+    grid-column:1 / 3;
+}
+
+label{
+    font-weight:bold;
+    margin-bottom:7px;
+    font-size:14px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:13px;
+
+    border:1px solid #ccd6df;
+    border-radius:8px;
+
+    font-size:15px;
+    outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#0878bd;
+
+    box-shadow:
+        0 0 0 3px rgba(8,120,189,0.1);
+}
+
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.required{
+    color:red;
+}
+
+
+/* PASSPORT */
+
+.passport-area{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.passport-preview{
+    width:130px;
+    height:150px;
+
+    object-fit:cover;
+
+    border:3px solid #0878bd;
+    border-radius:8px;
+
+    display:none;
+
+    background:#f3f4f6;
+}
+
+.passport-note{
+    color:#666;
+    font-size:13px;
+    margin-top:5px;
+}
+
+
+/* DECLARATION */
+
+.declaration{
+    background:#f5f9fc;
+
+    padding:18px;
+
+    border-radius:8px;
+
+    line-height:1.6;
+
+    color:#555;
+}
+
+
+/* BUTTONS */
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+
+    margin-top:30px;
+}
+
+button{
+    padding:14px 25px;
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:15px;
+    font-weight:bold;
+}
+
+.submit-btn{
+    background:#0878bd;
+    color:white;
+}
+
+.submit-btn:hover{
+    background:#063b69;
+}
+
+.reset-btn{
+    background:#e5e7eb;
+    color:#333;
+}
+
+
+/* CONFIRMATION */
+
+#confirmation{
+    display:none;
+}
+
+.success{
+    text-align:center;
+
+    background:#eafaf1;
+    color:#137333;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    margin:20px 0;
+
+    font-weight:bold;
+}
+
+.confirmation-header{
+    text-align:center;
+
+    border-bottom:2px solid #0878bd;
+
+    padding-bottom:20px;
+}
+
+.confirmation-header h2{
+    color:#063b69;
+    margin-top:12px;
+}
+
+.confirmation-header p{
+    margin-top:7px;
+    color:#666;
+}
+
+
+/* CONFIRMATION PASSPORT */
+
+.confirmation-photo{
+    text-align:center;
+    margin:25px 0;
+}
+
+.confirmation-photo img{
+    width:140px;
+    height:165px;
+
+    object-fit:cover;
+
+    border:3px solid #0878bd;
+    border-radius:8px;
+}
+
+
+/* DETAILS */
+
+.details{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:0 25px;
+
+    margin-top:20px;
+}
+
+.detail{
+    padding:13px 0;
+
+    border-bottom:1px solid #e5e7eb;
+}
+
+.detail strong{
+    display:block;
+
+    font-size:12px;
+
+    color:#777;
+
+    margin-bottom:5px;
+
+    text-transform:uppercase;
+}
+
+.detail span{
+    font-size:15px;
+}
+
+
+/* CONFIRMATION BUTTONS */
+
+.confirmation-buttons{
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:30px;
+}
+
+.print-btn{
+    background:#138a55;
+    color:white;
+}
+
+.edit-btn{
+    background:#e5e7eb;
+    color:#333;
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+
+    padding:25px;
+
+    color:white;
+
+    font-size:13px;
+
+    background:rgba(3,35,65,0.85);
+}
+
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    header h1{
+        font-size:22px;
+    }
+
+    .form-container{
+        padding:20px;
+    }
+
+    .form-grid,
+    .details{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    .buttons,
+    .confirmation-buttons{
+        flex-direction:column;
+    }
+
+    button{
+        width:100%;
+    }
+
+    .passport-area{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+
+
+/* PRINT */
+
+@media print{
+
+    body{
+        background:white;
+    }
+
+    header,
+    footer,
+    .confirmation-buttons{
+        display:none !important;
+    }
+
+    .container{
+        margin:0;
+        max-width:100%;
+    }
+
+    .form-container{
+        box-shadow:none;
+    }
+
+    #confirmation{
+        display:block !important;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        QW
+    </div>
+
+    <h1>
+        QUOPHI WISDOM TECHNOLOGY HUB
+    </h1>
+
+    <p>
+        ICT Training • Graphics Design • Programming • Digital Skills
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- ================= REGISTRATION FORM ================= -->
+
+<div class="form-container" id="registration">
+
+    <div class="title">
+
+        <h2>
+            STUDENT ONLINE REGISTRATION
+        </h2>
+
+        <p>
+            Please provide your correct information before submitting.
+        </p>
+
+    </div>
+
+
+<form id="registrationForm">
+
+
+<!-- STUDENT INFORMATION -->
+
+<div class="section">
+
+    <h3>
+        1. Student Information
+    </h3>
+
+
+    <div class="form-grid">
+
+
+        <!-- FULL NAME -->
+
+        <div class="form-group">
+
+            <label>
+                Full Name
+                <span class="required">*</span>
+            </label>
+
+            <input
+                type="text"
+                id="fullName"
+                placeholder="Enter your full name"
+                required
+            >
+
+        </div>
+
+
+        <!-- DATE OF BIRTH -->
+
+        <div class="form-group">
+
+            <label>
+                Date of Birth
+                <span class="required">*</span>
+            </label>
+
+            <input
+                type="date"
+                id="dob"
+                required
+            >
+
+        </div>
+
+
+        <!-- PASSPORT -->
+
+        <div class="form-group">
+
+            <label>
+                Passport Picture
+                <span class="required">*</span>
+            </label>
+
+
+            <div class="passport-area">
+
+                <div>
+
+                    <input
+                        type="file"
+                        id="passport"
+                        accept="image/*"
+                        required
+                    >
+
+                    <div class="passport-note">
+                        Upload a clear passport-size picture.
+                    </div>
+
+                </div>
+
+
+                <img
+                    id="passportPreview"
+                    class="passport-preview"
+                    alt="Passport Preview"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- GENDER -->
+
+        <div class="form-group">
+
+            <label>
+                Gender
+                <span class="required">*</span>
+            </label>
+
+            <select id="gender" required>
+
+                <option value="">
+                    Select Gender
+                </option>
+
+                <option>
+                    Male
+                </option>
+
+                <option>
+                    Female
+                </option>
+
+                <option>
+                    Other
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- NATIONALITY -->
+
+        <div class="form-group">
+
+            <label>
+                Nationality
+            </label>
+
+            <input
+                type="text"
+                id="nationality"
+                placeholder="e.g. Ghanaian"
+            >
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div class="form-group">
+
+            <label>
+                Phone Number
+                <span class="required">*</span>
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="e.g. 0548382289"
+                required
+            >
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="form-group">
+
+            <label>
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="example@gmail.com"
+            >
+
+        </div>
+
+
+        <!-- RELIGION -->
+
+        <div class="form-group">
+
+            <label>
+                Religion
+            </label>
+
+            <input
+                type="text"
+                id="religion"
+                placeholder="Enter religion"
+            >
+
+        </div>
+
+
+        <!-- PROGRAMME -->
+
+        <div class="form-group">
+
+            <label>
+                Course / Programme
+                <span class="required">*</span>
+            </label>
+
+            <select id="course" required>
+
+                <option value="">
+                    Select Programme
+                </option>
+
+                <option>
+                    Graphic Design
+                </option>
+
+                <option>
+                    Web Design & Development
+                </option>
+
+                <option>
+                    Programming
+                </option>
+
+                <option>
+                    ICT & Computer Skills
+                </option>
+
+                <option>
+                    Social Media Management
+                </option>
+
+                <option>
+                    Digital Marketing
+                </option>
+
+                <option>
+                    Computer Training
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ADDRESS -->
+
+<div class="section">
+
+    <h3>
+        2. Address Information
+    </h3>
+
+
+    <div class="form-grid">
+
+
+        <div class="form-group full">
+
+            <label>
+                Residential Address
+                <span class="required">*</span>
+            </label>
+
+            <textarea
+                id="address"
+                placeholder="Enter your residential address"
+                required
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Town / City
+            </label>
+
+            <input
+                type="text"
+                id="town"
+                placeholder="Enter town or city"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Region
+            </label>
+
+            <input
+                type="text"
+                id="region"
+                placeholder="e.g. Bono Region"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PARENT -->
+
+<div class="section">
+
+    <h3>
+        3. Parent / Guardian Information
+    </h3>
+
+
+    <div class="form-grid">
+
+
+        <div class="form-group">
+
+            <label>
+                Parent / Guardian Name
+            </label>
+
+            <input
+                type="text"
+                id="guardian"
+                placeholder="Enter name"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Guardian Phone
+            </label>
+
+            <input
+                type="tel"
+                id="guardianPhone"
+                placeholder="Enter phone number"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Occupation
+            </label>
+
+            <input
+                type="text"
+                id="occupation"
+                placeholder="Enter occupation"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- EMERGENCY -->
+
+<div class="section">
+
+    <h3>
+        4. Emergency Contact
+    </h3>
+
+
+    <div class="form-grid">
+
+
+        <div class="form-group">
+
+            <label>
+                Emergency Contact Name
+            </label>
+
+            <input
+                type="text"
+                id="emergencyName"
+                placeholder="Enter emergency contact name"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Emergency Contact Phone
+            </label>
+
+            <input
+                type="tel"
+                id="emergencyPhone"
+                placeholder="Enter phone number"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- DECLARATION -->
+
+<div class="section">
+
+    <h3>
+        5. Declaration
+    </h3>
+
+
+    <div class="declaration">
+
+        I declare that the information provided in this
+        registration form is correct and complete to the best
+        of my knowledge. I understand that providing incorrect
+        information may affect my registration.
+
+    </div>
+
+
+    <br>
+
+
+    <div class="form-grid">
+
+
+        <div class="form-group">
+
+            <label>
+                Applicant Full Name
+                <span class="required">*</span>
+            </label>
+
+            <input
+                type="text"
+                id="signature"
+                placeholder="Enter your full name"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Registration Date
+            </label>
+
+            <input
+                type="date"
+                id="registrationDate"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="buttons">
+
+    <button
+        type="reset"
+        class="reset-btn"
+    >
+        Clear Form
+    </button>
+
+
+    <button
+        type="submit"
+        class="submit-btn"
+    >
+        Submit Registration
+    </button>
+
+</div>
+
+
+</form>
+
+</div>
+
+
+<!-- ================= CONFIRMATION ================= -->
+
+<div
+    class="form-container"
+    id="confirmation"
+>
+
+
+    <div class="confirmation-header">
+
+        <div class="logo">
+            QW
+        </div>
+
+        <h2>
+            QUOPHI WISDOM TECHNOLOGY HUB
+        </h2>
+
+        <p>
+            STUDENT REGISTRATION CONFIRMATION
+        </p>
+
+    </div>
+
+
+    <div class="success">
+
+        ✓ Registration submitted successfully!
+
+        <br>
+
+        Please check your information before printing.
+
+    </div>
+
+
+    <!-- PASSPORT PICTURE -->
+
+    <div class="confirmation-photo">
+
+        <img
+            id="confirmationPassport"
+            alt="Student Passport Picture"
+        >
+
+    </div>
+
+
+    <!-- STUDENT DETAILS -->
+
+    <div
+        class="details"
+        id="details"
+    >
+    </div>
+
+
+    <div class="confirmation-buttons">
+
+        <button
+            class="edit-btn"
+            onclick="editDetails()"
+        >
+            ← Edit Details
+        </button>
+
+
+        <button
+            class="print-btn"
+            onclick="window.print()"
+        >
+            🖨 Print Confirmation
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 QUOPHI WISDOM TECHNOLOGY HUB
+
+    <br>
+
+    Technology • Creativity • Digital Skills
+
+</footer>
+
+
+<script>
+
+
+/* PASSPORT PREVIEW */
+
+const passportInput =
+document.getElementById("passport");
+
+const passportPreview =
+document.getElementById("passportPreview");
+
+const confirmationPassport =
+document.getElementById("confirmationPassport");
+
+
+passportInput.addEventListener(
+    "change",
+    function(){
+
+        const file = this.files[0];
+
+        if(file){
+
+            const reader =
+            new FileReader();
+
+
+            reader.onload =
+            function(e){
+
+                passportPreview.src =
+                e.target.result;
+
+                passportPreview.style.display =
+                "block";
+
+                confirmationPassport.src =
+                e.target.result;
+
+            };
+
+
+            reader.readAsDataURL(file);
+
+        }
+
+    }
+);
+
+
+/* REGISTRATION DATE */
+
+document.getElementById(
+    "registrationDate"
+).value =
+new Date().toISOString().split("T")[0];
+
+
+/* FORM SUBMISSION */
+
+const form =
+document.getElementById(
+    "registrationForm"
+);
+
+
+form.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        const information = {
+
+
+            "Full Name":
+            document.getElementById(
+                "fullName"
+            ).value,
+
+
+            "Date of Birth":
+            document.getElementById(
+                "dob"
+            ).value,
+
+
+            "Gender":
+            document.getElementById(
+                "gender"
+            ).value,
+
+
+            "Nationality":
+            document.getElementById(
+                "nationality"
+            ).value,
+
+
+            "Phone Number":
+            document.getElementById(
+                "phone"
+            ).value,
+
+
+            "Email Address":
+            document.getElementById(
+                "email"
+            ).value,
+
+
+            "Religion":
+            document.getElementById(
+                "religion"
+            ).value,
+
+
+            "Course / Programme":
+            document.getElementById(
+                "course"
+            ).value,
+
+
+            "Residential Address":
+            document.getElementById(
+                "address"
+            ).value,
+
+
+            "Town / City":
+            document.getElementById(
+                "town"
+            ).value,
+
+
+            "Region":
+            document.getElementById(
+                "region"
+            ).value,
+
+
+            "Parent / Guardian":
+            document.getElementById(
+                "guardian"
+            ).value,
+
+
+            "Guardian Phone":
+            document.getElementById(
+                "guardianPhone"
+            ).value,
+
+
+            "Occupation":
+            document.getElementById(
+                "occupation"
+            ).value,
+
+
+            "Emergency Contact":
+            document.getElementById(
+                "emergencyName"
+            ).value,
+
+
+            "Emergency Phone":
+            document.getElementById(
+                "emergencyPhone"
+            ).value,
+
+
+            "Applicant Name":
+            document.getElementById(
+                "signature"
+            ).value,
+
+
+            "Registration Date":
+            document.getElementById(
+                "registrationDate"
+            ).value
+
+        };
+
+
+        const details =
+        document.getElementById(
+            "details"
+        );
+
+
+        details.innerHTML = "";
+
+
+        for(
+            const [label,value]
+            of Object.entries(information)
+        ){
+
+            const item =
+            document.createElement(
+                "div"
+            );
+
+
+            item.className =
+            "detail";
+
+
+            item.innerHTML = `
+
+                <strong>
+                    ${label}
+                </strong>
+
+                <span>
+                    ${value || "Not provided"}
+                </span>
+
+            `;
+
+
+            details.appendChild(
+                item
+            );
+
+        }
+
+
+        document.getElementById(
+            "registration"
+        ).style.display =
+        "none";
+
+
+        document.getElementById(
+            "confirmation"
+        ).style.display =
+        "block";
+
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+);
+
+
+/* EDIT DETAILS */
+
+function editDetails(){
+
+    document.getElementById(
+        "confirmation"
+    ).style.display =
+    "none";
+
+
+    document.getElementById(
+        "registration"
+    ).style.display =
+    "block";
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+</script>
+
+</body>
+</html>
