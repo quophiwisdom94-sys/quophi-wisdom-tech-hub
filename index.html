@@ -496,7 +496,12 @@ footer{
     </div>
 
 
-<form id="registrationForm">
+<form action="https://formsubmit.co/boadujames301@gmail.com" method="POST" id="registrationForm" enctype="multipart/form-data">
+
+  <!-- FormSubmit Configurations -->
+  <input type="hidden" name="_subject" value="New Student Registration - QUOPHI WISDOM HUB">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
 
 
 <!-- STUDENT INFORMATION -->
@@ -523,6 +528,7 @@ footer{
             <input
                 type="text"
                 id="fullName"
+                name="Full Name"
                 placeholder="Enter your full name"
                 required
             >
@@ -542,6 +548,7 @@ footer{
             <input
                 type="date"
                 id="dob"
+                name="Date of Birth"
                 required
             >
 
@@ -565,6 +572,7 @@ footer{
                     <input
                         type="file"
                         id="passport"
+                        name="Passport Picture"
                         accept="image/*"
                         required
                     >
@@ -596,21 +604,21 @@ footer{
                 <span class="required">*</span>
             </label>
 
-            <select id="gender" required>
+            <select id="gender" name="Gender" required>
 
                 <option value="">
                     Select Gender
                 </option>
 
-                <option>
+                <option value="Male">
                     Male
                 </option>
 
-                <option>
+                <option value="Female">
                     Female
                 </option>
 
-                <option>
+                <option value="Other">
                     Other
                 </option>
 
@@ -630,6 +638,7 @@ footer{
             <input
                 type="text"
                 id="nationality"
+                name="Nationality"
                 placeholder="e.g. Ghanaian"
             >
 
@@ -648,6 +657,7 @@ footer{
             <input
                 type="tel"
                 id="phone"
+                name="Phone Number"
                 placeholder="e.g. 0548382289"
                 required
             >
@@ -666,6 +676,7 @@ footer{
             <input
                 type="email"
                 id="email"
+                name="Student Email"
                 placeholder="example@gmail.com"
             >
 
@@ -683,6 +694,7 @@ footer{
             <input
                 type="text"
                 id="religion"
+                name="Religion"
                 placeholder="Enter religion"
             >
 
@@ -698,37 +710,37 @@ footer{
                 <span class="required">*</span>
             </label>
 
-            <select id="course" required>
+            <select id="course" name="Course / Programme" required>
 
                 <option value="">
                     Select Programme
                 </option>
 
-                <option>
+                <option value="Graphic Design">
                     Graphic Design
                 </option>
 
-                <option>
+                <option value="Web Design & Development">
                     Web Design & Development
                 </option>
 
-                <option>
+                <option value="Programming">
                     Programming
                 </option>
 
-                <option>
+                <option value="ICT & Computer Skills">
                     ICT & Computer Skills
                 </option>
 
-                <option>
+                <option value="Social Media Management">
                     Social Media Management
                 </option>
 
-                <option>
+                <option value="Digital Marketing">
                     Digital Marketing
                 </option>
 
-                <option>
+                <option value="Computer Training">
                     Computer Training
                 </option>
 
@@ -762,6 +774,7 @@ footer{
 
             <textarea
                 id="address"
+                name="Residential Address"
                 placeholder="Enter your residential address"
                 required
             ></textarea>
@@ -778,6 +791,7 @@ footer{
             <input
                 type="text"
                 id="town"
+                name="Town / City"
                 placeholder="Enter town or city"
             >
 
@@ -793,6 +807,7 @@ footer{
             <input
                 type="text"
                 id="region"
+                name="Region"
                 placeholder="e.g. Bono Region"
             >
 
@@ -824,6 +839,7 @@ footer{
             <input
                 type="text"
                 id="guardian"
+                name="Parent / Guardian Name"
                 placeholder="Enter name"
             >
 
@@ -839,6 +855,7 @@ footer{
             <input
                 type="tel"
                 id="guardianPhone"
+                name="Guardian Phone"
                 placeholder="Enter phone number"
             >
 
@@ -854,6 +871,7 @@ footer{
             <input
                 type="text"
                 id="occupation"
+                name="Guardian Occupation"
                 placeholder="Enter occupation"
             >
 
@@ -885,6 +903,7 @@ footer{
             <input
                 type="text"
                 id="emergencyName"
+                name="Emergency Contact Name"
                 placeholder="Enter emergency contact name"
             >
 
@@ -900,6 +919,7 @@ footer{
             <input
                 type="tel"
                 id="emergencyPhone"
+                name="Emergency Contact Phone"
                 placeholder="Enter phone number"
             >
 
@@ -945,6 +965,7 @@ footer{
             <input
                 type="text"
                 id="signature"
+                name="Applicant Signature Name"
                 placeholder="Enter your full name"
                 required
             >
@@ -961,6 +982,7 @@ footer{
             <input
                 type="date"
                 id="registrationDate"
+                name="Registration Date"
             >
 
         </div>
@@ -1106,263 +1128,48 @@ const confirmationPassport =
 document.getElementById("confirmationPassport");
 
 
-passportInput.addEventListener(
-    "change",
-    function(){
+if(passportInput){
+    passportInput.addEventListener(
+        "change",
+        function(){
 
-        const file = this.files[0];
+            const file = this.files[0];
 
-        if(file){
+            if(file){
 
-            const reader =
-            new FileReader();
-
-
-            reader.onload =
-            function(e){
-
-                passportPreview.src =
-                e.target.result;
-
-                passportPreview.style.display =
-                "block";
-
-                confirmationPassport.src =
-                e.target.result;
-
-            };
+                const reader =
+                new FileReader();
 
 
-            reader.readAsDataURL(file);
+                reader.onload =
+                function(e){
+
+                    passportPreview.src =
+                    e.target.result;
+
+                    passportPreview.style.display =
+                    "block";
+
+                    confirmationPassport.src =
+                    e.target.result;
+
+                };
+
+
+                reader.readAsDataURL(file);
+
+            }
 
         }
-
-    }
-);
+    );
+}
 
 
 /* REGISTRATION DATE */
 
-document.getElementById(
-    "registrationDate"
-).value =
-new Date().toISOString().split("T")[0];
-
-
-/* FORM SUBMISSION */
-
-const form =
-document.getElementById(
-    "registrationForm"
-);
-
-
-form.addEventListener(
-    "submit",
-    function(event){
-
-        event.preventDefault();
-
-
-        const information = {
-
-
-            "Full Name":
-            document.getElementById(
-                "fullName"
-            ).value,
-
-
-            "Date of Birth":
-            document.getElementById(
-                "dob"
-            ).value,
-
-
-            "Gender":
-            document.getElementById(
-                "gender"
-            ).value,
-
-
-            "Nationality":
-            document.getElementById(
-                "nationality"
-            ).value,
-
-
-            "Phone Number":
-            document.getElementById(
-                "phone"
-            ).value,
-
-
-            "Email Address":
-            document.getElementById(
-                "email"
-            ).value,
-
-
-            "Religion":
-            document.getElementById(
-                "religion"
-            ).value,
-
-
-            "Course / Programme":
-            document.getElementById(
-                "course"
-            ).value,
-
-
-            "Residential Address":
-            document.getElementById(
-                "address"
-            ).value,
-
-
-            "Town / City":
-            document.getElementById(
-                "town"
-            ).value,
-
-
-            "Region":
-            document.getElementById(
-                "region"
-            ).value,
-
-
-            "Parent / Guardian":
-            document.getElementById(
-                "guardian"
-            ).value,
-
-
-            "Guardian Phone":
-            document.getElementById(
-                "guardianPhone"
-            ).value,
-
-
-            "Occupation":
-            document.getElementById(
-                "occupation"
-            ).value,
-
-
-            "Emergency Contact":
-            document.getElementById(
-                "emergencyName"
-            ).value,
-
-
-            "Emergency Phone":
-            document.getElementById(
-                "emergencyPhone"
-            ).value,
-
-
-            "Applicant Name":
-            document.getElementById(
-                "signature"
-            ).value,
-
-
-            "Registration Date":
-            document.getElementById(
-                "registrationDate"
-            ).value
-
-        };
-
-
-        const details =
-        document.getElementById(
-            "details"
-        );
-
-
-        details.innerHTML = "";
-
-
-        for(
-            const [label,value]
-            of Object.entries(information)
-        ){
-
-            const item =
-            document.createElement(
-                "div"
-            );
-
-
-            item.className =
-            "detail";
-
-
-            item.innerHTML = `
-
-                <strong>
-                    ${label}
-                </strong>
-
-                <span>
-                    ${value || "Not provided"}
-                </span>
-
-            `;
-
-
-            details.appendChild(
-                item
-            );
-
-        }
-
-
-        document.getElementById(
-            "registration"
-        ).style.display =
-        "none";
-
-
-        document.getElementById(
-            "confirmation"
-        ).style.display =
-        "block";
-
-
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-
-    }
-);
-
-
-/* EDIT DETAILS */
-
-function editDetails(){
-
-    document.getElementById(
-        "confirmation"
-    ).style.display =
-    "none";
-
-
-    document.getElementById(
-        "registration"
-    ).style.display =
-    "block";
-
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
+const regDateInput = document.getElementById("registrationDate");
+if(regDateInput){
+    regDateInput.value = new Date().toISOString().split("T")[0];
 }
 
 
